@@ -1,0 +1,6 @@
+@adc2024.tokenprovider_HostAddress = https://localhost:7211
+
+### AuthenticateUser
+GET {{adc2024.tokenprovider_HostAddress}}/tokenprovider/AuthenticateUser?UserId=string&Password=string
+
+
