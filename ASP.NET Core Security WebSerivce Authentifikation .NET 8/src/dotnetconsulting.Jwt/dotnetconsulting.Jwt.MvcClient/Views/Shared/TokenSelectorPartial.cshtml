@@ -1,0 +1,51 @@
+﻿@{
+    IList<TokenSelectorPartialModel> tokens = new List<TokenSelectorPartialModel>();
+
+    foreach (var cookie in Context.Request.Cookies)
+    {
+        System.Diagnostics.Debug.WriteLine($"{cookie.Key}: {cookie.Value}");
+    }
+
+    const string NUMBER = "JwtToken-";
+    const string DISPLAY = "JwtTokenDisplay-";
+
+    string? currentKey = Context.Request.Query["t"];
+    string? currentDisplay = null!;
+
+    // JwtToken-123456 "{Jwt}"
+    // JwtTokenDisplay-123456 "Session 123456"
+    foreach (var cookie in Context.Request.Cookies.Where(w => w.Key.StartsWith(NUMBER)))
+    {
+        string number = cookie.Key.Substring(NUMBER.Length);
+
+        string value = number;
+        string display = $"Display: {number}";
+
+        var c = Context.Request.Cookies[$"{DISPLAY}{number}"];
+        if (c is not null)
+            display = c;
+
+        tokens.Add(new TokenSelectorPartialModel() { Token = value, Display = display });
+
+        if (value == currentKey)
+            currentDisplay = display;
+    }
+}
+
+@if (tokens?.Any() == true)
+{
+    <div style="background-color: green">
+        <div class="dropdown text-center">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                @currentDisplay
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                @foreach (var t in tokens)
+                {
+                    <li><a href="?t=@t.Token">@t.Display</a></li>
+                }
+            </ul>
+        </div>
+    </div>
+}

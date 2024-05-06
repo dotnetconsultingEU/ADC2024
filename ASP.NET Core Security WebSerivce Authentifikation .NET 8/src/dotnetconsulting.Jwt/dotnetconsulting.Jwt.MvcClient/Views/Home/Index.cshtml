@@ -1,0 +1,18 @@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome @ViewBag.UserDisplayname (@ViewBag.TransactionId)</h1>
+
+    <h2>Rolle auslesen I</h2>
+    <p>IsInRoleA: @ViewBag.IsInRoleA</p>
+    <p>IsInRoleB: @ViewBag.IsInRoleB</p>
+    <p>IsInRoleC: @ViewBag.IsInRoleC</p>
+
+    <h2>Rolle auslesen II (mit Injection)</h2>
+    <p>IsInRoleA: @HttpContextAccessor.HttpContext!.User.IsInRole("RoleA")</p>
+    <p>IsInRoleB: @HttpContextAccessor.HttpContext!.User.IsInRole("RoleB")</p>
+    <p>IsInRoleC: @HttpContextAccessor.HttpContext!.User.IsInRole("RoleC")</p>
+</div>
