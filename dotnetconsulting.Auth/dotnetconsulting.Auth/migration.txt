@@ -1,0 +1,3 @@
+-- Ausführen im Projektverzeichnis (wo dotnetconsulting.Auth.csproj liegt)
+dotnet ef migrations add InitialMigration
+dotnet ef database update

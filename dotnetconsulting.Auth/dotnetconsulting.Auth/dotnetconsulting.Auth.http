@@ -1,0 +1,51 @@
+@baseurl = http://localhost:5097
+
+### Wie wird das Wetter?
+GET {{baseurl}}/weatherforecast/
+Accept: application/json
+
+### Register
+POST {{baseurl}}/register
+Content-Type: application/json
+
+{
+  "username": "tkansy",
+  "password": "123456Aa!",
+  "email": "tkansy@dotnetconsulting.eu"
+}
+
+### Login
+POST {{baseurl}}/login
+Content-Type: application/json
+
+{
+  "tokenType": "Bearer",
+  "password": "123456Aa!",
+  "expiresIn": 3600,
+  "email": "tkansy@dotnetconsulting.eu"
+}
+
+### Refresh
+POST {{baseurl}}/refresh
+Content-Type: application/json
+
+{
+  "refreshToken": "CfDJ8MINU2rULShDjuO1VcKwJYJtwsKNEbflXn4eEC8-ouL_8Yl10fB9RVij9Ddtw52VbWWh-aBq7_35c9fZCq2VnOEqRXhrKoGrDT94lB7uwWUdW7p6DdpiXk4vM7eHKNfowRNp5f3BC6Y_UDr6OdFLA8Mqu0AV1IrtX2VQV-DZnTjodwXMdShUun556LzR9E1H_jcfc6qdCXeGO9sIK__e5A44ISvQHh3CAbAsfeFzCQkLou_9lGulqnx3H6IRgJbvJ9RTmn0ETZ9tCVxYYOxMjNHKTK17u9f0DHKoxjc-KWp7MVWresCVbX_B4rEL6fcItGu2K5HqXfzzWHwLd2c76lWY35Ef_P7jSXISfYSSB2MsGIuLwBgnOsFTtP8yM2Hz8m0on2w-e1RXzlw3S2tz1MIWZW8oDEM35pGQNWnZ_vPJAXbKRwdCQMdAkJQUVpckOOSQgj9eoE9-UrDp6DKvhzQvxbJd5CTexOQFZiFmaeQn-GqDnUykGdyWrIQ1tE9LkX9ovWhL-3pJnP11fhM-N8t-mgUaPcXPBYkDOsv2OwjRIrzCof9nlkZpu8y8dVH_ZHnkIKlZwgI2vS7NakGpZP4z2FJO_MUC23gUgtzKgLLM89Fi6wn1su7-wo1Lcmbc-u77R4voPMZiEzZ1SavpAbgeYsYb3RiSDzookRdXu6JFNEo9l78w6Vrw5wDm5hV5YnJsEM0WlCwZDruIMjDY8d19aAm7l44SP2SYLn-mEgeu"
+}
+
+### Wie wird das Wetter?
+GET {{baseurl}}/weatherforecast/
+Accept: application/json
+Authorization: Bearer CfDJ8MINU2rULShDjuO1VcKwJYKBe1qH0pzKuBdtbtayt_gPvJrxgcCtjOLXlY-Z15I4my3cPb9mgvUAy_ohYLr5U01XR8qEZJikW634HunS30LpmdB9u0kNRk5Um5UZNRGUoQKF3gDki35qMQG6cuA2R4i0M7z0PhVa8rBNcG1t5o-vQLtRnKKS3zDsqgoZeYzUcXJtA-LK_jOqgqrGN9Sxlfc8PMhZe8VqhZBPimaB6rhY8IlFMW1kfJUppDlaMYNG_kL-rB3C8L68_IjrqMvzf_YYB0CLJGdJ1Dl0JUHwBJpAxeCe0puw6JAny2hisyTUk_41gMMsUUFHb2mco6ujKyQHrYRVyslcwefrfxnIagU0-OpyquBZ_DYPN4510033OOKgqHLHSbyS3t8w1wW3kRhjlNgj6tFd39w8SZc-KuMiyd__YkyI3HCowjmvzE4ec2P9sTZtOW1aM1M8eDR8dfCPmgjmS_mSU1sVfKcZdehoJUBNzRpMFSVsPFdoEjlcZVqk_Ms5w-_ARr1feF5OlUyumSRSm-ma3AXohNwfRMjqStsdg6AFTwjyf9UeRzJfG_Jf0576FsjUfzhRAkej9lwccESvjgU2UtRBB_JevjG3zkFCl160gMKHi4FRMy9gGuVfE6tt4BYVNQVL23qvzqwuyYxvZMK-Dcy9SkRt9eeIqtBKZK5TpgD_WevgpfoDaz5oQGuOZKl0w4R42Hlp3D0RDGYAewpaYaSRdjG0oHcC
+
+### Info
+GET {{baseurl}}/manage/info
+Authorization: Bearer CfDJ8MINU2rULShDjuO1VcKwJYKBe1qH0pzKuBdtbtayt_gPvJrxgcCtjOLXlY-Z15I4my3cPb9mgvUAy_ohYLr5U01XR8qEZJikW634HunS30LpmdB9u0kNRk5Um5UZNRGUoQKF3gDki35qMQG6cuA2R4i0M7z0PhVa8rBNcG1t5o-vQLtRnKKS3zDsqgoZeYzUcXJtA-LK_jOqgqrGN9Sxlfc8PMhZe8VqhZBPimaB6rhY8IlFMW1kfJUppDlaMYNG_kL-rB3C8L68_IjrqMvzf_YYB0CLJGdJ1Dl0JUHwBJpAxeCe0puw6JAny2hisyTUk_41gMMsUUFHb2mco6ujKyQHrYRVyslcwefrfxnIagU0-OpyquBZ_DYPN4510033OOKgqHLHSbyS3t8w1wW3kRhjlNgj6tFd39w8SZc-KuMiyd__YkyI3HCowjmvzE4ec2P9sTZtOW1aM1M8eDR8dfCPmgjmS_mSU1sVfKcZdehoJUBNzRpMFSVsPFdoEjlcZVqk_Ms5w-_ARr1feF5OlUyumSRSm-ma3AXohNwfRMjqStsdg6AFTwjyf9UeRzJfG_Jf0576FsjUfzhRAkej9lwccESvjgU2UtRBB_JevjG3zkFCl160gMKHi4FRMy9gGuVfE6tt4BYVNQVL23qvzqwuyYxvZMK-Dcy9SkRt9eeIqtBKZK5TpgD_WevgpfoDaz5oQGuOZKl0w4R42Hlp3D0RDGYAewpaYaSRdjG0oHcC
+
+# Auﬂerdem gibt es:
+# /confirmEmail (IEmailSender<TUser>)
+# /resendConfirmationEmail (IEmailSender<TUser>)
+# /forgotPassword
+# /resetPassword
+# /manage/2fa
+# /manage/info
